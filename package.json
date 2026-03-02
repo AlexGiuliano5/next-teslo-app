@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run prisma:deploy && next build",
     "start": "next start",
     "format": "biome format . --write",
     "check:biome": "biome check .",
     "lint": "eslint .",
+    "prisma:deploy": "npx prisma migrate deploy && prisma generate",
     "seed": "ts-node --project seed/tsconfig.json seed/seed-database.ts"
   },
   "dependencies": {
